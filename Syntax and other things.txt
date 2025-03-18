@@ -1,0 +1,120 @@
+HALL programming language instructions
+
+-input types (written like as said and seperated with +)
+
+variable 
+"string"
+extra content:
+[readinput]
+['color'] (cannot be used without "string" since color is not a real variable.)
+[stringconvert(string)]
+[numberconvert(number)]
+
+
+-only two variable types for easy programming
+
+string - such as Hello
+number - such as 294
+
+-instruction example
+set variable([readinput])
+
+set = instruction
+variable = is what variable to write to
+() = what to write to the variable
+
+-what () can do
+() can be input, or a true or false checker. and some extra functions
+for the input check line 14
+how it checks true or false is in the code, for example the IF command
+example: 
+
+if(true == true)
+{
+    write("true is true")
+}
+(output is true is true)
+
+extra functions
+color:
+write("['color']Hello World!");
+"" = what to write [] defines color
+in some commands () defines a name for example function("name")
+
+instruction list:
+
+if: if(true == true)
+able to use == equal, >> more, << less, != not equal.
+
+Write: write("hello!")
+writes a string or variable. 
+
+function: function("Name")
+defines a function. () defines name
+
+call: call(name)
+calls a function
+
+return: return()
+returns to the call() instruction that called it
+
+bootable: bootable
+makes the code bootable
+
+convertstring: [convertstring(stringvariable)] 
+converts a string to a number (will return 0 if a letter is present)
+
+convertnumber: [convertnumber(numbervariable)]
+converts a number to a strings
+
+ASM: ASM()
+allows for assembly code to be present alongside compiled code, this makes the compiler skip commands until another ASM() is found
+
+set: set variable("Hello")
+sets a variable and gives it a string. 
+can use variable, string and readinput
+
+halt: halt()
+Stops the Program
+
+-variables
+variables is data stored in RAM, which is alot larger then registers
+there are two types of variables, which cannot be used together.
+String
+Number
+but there are ways to change that, using stringconvert and number convert
+which convert the code to their oppisate, although letters cant be transferred to a number.
+
+-example code:
+
+Set and Write example:
+// beginning
+bootable // makes bootable, for bootloaders only but still possible to boot a program if it has its own disk loader.
+write("Enter Name")  // displays Enter Name
+set input([readinput]) // allows user to input a string
+write("Hello," + input) // displays hello, and the name of the user 
+// end
+
+ASM, halt and function example
+// beginning
+bootable // makes bootable
+call(Function) // calls function
+call(end) // calls end when function returns
+
+function(function)
+ASM()
+mov ah, 0x0e
+mov al, 'A' 
+int 0x10
+ASM()
+return()
+
+function(end)
+halt
+
+// end
+
+
+
+
+
